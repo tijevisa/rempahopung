@@ -1,0 +1,315 @@
+* {
+    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+.boxheader {
+    background: #D9D9D9;
+    padding: 1em 1em 1em 1em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+.nav_boxheader-kiri {
+    font-weight: bold;
+}
+
+.nav_boxheader-tengah a {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.nav_boxheader-kanan a{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.boxcontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 20%;
+    overflow-y: auto;
+    padding-bottom: 10rem;
+}
+
+.boxcontent-rempah1-isi, .boxcontent-cart {
+    height: 900px;
+    width: 1000px;
+    left: 150px;
+    top: 227px;
+    border: 2px solid #ccc;
+	background: #D9D9D9;
+	border-radius: 15px;
+    overflow-y: auto;
+}
+
+.boxcontent-cart-isi {
+    height: 240px;
+    width: 924px;
+    border-radius: 10px;
+    background: #201E1EC9;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boxcontent-cart-isi table {
+    width: 924px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boxcontent-cart-isi th {
+    border-bottom: 1px solid #000000;
+}
+
+.tombol {
+    height: 40px;
+    width: 170px;
+    left: 288px;
+    top: 123px;
+    border-radius: 20px;
+    background: #D9D9D9;
+}
+
+.boxcontent-blog {
+    width: 800px;
+    text-align: justify;
+}
+
+.boxcontent-blog p {
+    padding: 10px;
+    font-size: large;
+}
+
+.boxcontent-blog img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.boxcontent_konten0 {
+    display: flex;
+    flex-direction: row;
+}
+
+.boxcontent_konten0-teks {
+    display: flex;
+    flex-direction: column;
+    padding-right: 3em;
+}
+
+.boxcontent_konten1, .boxcontent_konten2, .boxcontent_konten3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2em;
+}
+
+.boxcontent_konten1-slide {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    margin: 1em;
+    background-color: aliceblue;
+    border-radius: 5px 5px 5px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-popup-cart {
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.boxcontent_konten3-promo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxcontent_konten4, .boxcontent_konten5 {
+    width: 697px;
+    height: 260px;
+    text-align: center;
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boxcontent_konten4-isi, .boxcontent_konten5-isi {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.boxcontent_konten4-1, .boxcontent_konten4-2, .boxcontent_konten4-3 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2em;
+    align-items: center;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.boxcontent_konten5-1, .boxcontent_konten5-2, .boxcontent_konten5-3 {
+    width: 254px;
+    background: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 2em;
+    align-items: center;
+    padding-bottom: 0.5em;
+}
+
+.lingkaran {
+    width: 70px;
+	height: 70px;
+	border-radius: 100%;
+    border: 2px solid black;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.boxcontent_konten1-terpopuler, .boxcontent_konten3-promo{
+    width: 1024px;
+    height: 270px;
+    background: #D9D9D9;
+    text-align: center;
+}
+
+.boxcontent_konten2-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 0.5em;
+}
+
+.boxcontent_konten2-button input[type=text] {
+    margin-top: 8px;
+    font-size: 17px;
+    padding-left: 10px;
+    border: none;
+    background: #D9D9D9;
+    text-align: left
+}
+
+.boxcontent_konten2-button button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #D9D9D9;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    height: 42px;
+}
+
+.boxfooter {    
+    background: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: auto;
+}
+
+.boxfooter_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.boxfooter_info-email, .boxfooter_info-telepon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

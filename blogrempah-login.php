@@ -1,13 +1,6 @@
 <?php
 session_start();
 
-function rp($angka){
-    $angka = number_format($angka);
-    $angka = str_replace(',', '.', $angka);
-    $angka ="$angka";
-    return $angka;
-}
-
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 ?>
@@ -18,7 +11,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rempah Opung - Cart</title>
+    <title>Rempah Opung - Rempah</title>
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
@@ -45,52 +38,15 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     </div>
 
     <div class="boxcontent">
-        <img style="width: 80px; height: 80px;" src="img/logo cart.png" alt="">
-        <h1 style="padding: 10px;">Cart</h1>
-        <div class="boxcontent-cart">
-            <div class="boxcontent-cart-isi">
-                <table>
-                    <tr>
-                        <th width="231px">Rempah</th><th width="231px">Jumlah Rempah (Kg)</th><th width="231px">Total Harga</th><th width="231px">Aksi</th>
-                    </tr>
-                    <tr>
-                        <td align="center">
-                            <?php
-                            include "config.php";
-                            $sql = mysqli_query($conn, "SELECT * FROM rempah");
-                            // $hasil = mysqli_fetch_array($sql);
-                            $i = 1;
-                            while($row=mysqli_fetch_assoc($sql))
-                            {
-                                $id[$i] = $row['id'];
-                                $nama_rempah[$i] = $row['nama_rempah'];
-                                $harga[$i] = rp($row['harga']);
-                                $image[$i] = $row['image'];
-                                $i++;
-                            }
-                            ?>
-                            <img src="img/<?= $image[1] ?>" style="width: 200px; height: 150px; padding-top:3px; border-radius: 5px 5px 0 0;">
-                            <div class="container">
-                                <h4 style="padding: 5px;"><b><?= $nama_rempah[1] ?></b></h4> 
-                                <p style="padding: 5px;">Rp. <?= $harga[1] ?></p> 
-                        </td>
-                        <td align="center">
-                            <div class="tombol">
-                                
-                            </div>
-                        </td>
-                        <td align="center">
-                            <div class="tombol">
-                                
-                            </div>
-                        </td>
-                        <td align="center" style="border-left: 1px solid;">
-                            <button onclick="window.location.href=''" style="cursor:pointer; margin: 10px 0 10px 0; background:#d9d9d9; border-width: 1px;height: 40px;width: 170px;top: 123px;border-radius: 20px;" >Pesan</button>
-                            <button onclick="window.location.href=''" style="cursor:pointer; margin: 10px 0 10px 0; background:#d9d9d9; border-width: 1px;height: 40px;width: 170px;top: 123px;border-radius: 20px;" >Hapus</button>
-                        </td>
-                    </tr>
-                </table>                
-            </div>
+        <div class="boxcontent-blog">
+            <h1 style="text-align: center;">Rempah</h1><br>
+            <h2>Pengertian</h2><br>
+            <p>Rempah-rempah adalah bagian tumbuhan yang beraroma atau berasa kuat yang digunakan dalam jumlah kecil di makanan sebagai pengawet atau perisa dalam masakan. Rempah-rempah biasanya dibedakan dengan tanaman lain yang digunakan untuk tujuan yang mirip, seperti tanaman obat, sayuran beraroma, dan buah kering.</p><br>
+            <img src="img/rempah.jpg" style="height: 292px; width: 475px; border-radius: 10px;"><br>
+            <h2>Kegunaan</h2><br>
+            <p>Fungsi utama rempah-rempah yakni sebagai perasa makanan. Rempah-rempah juga digunakan sebagai bahan baku parfum kosmetik dan dupa. Sejak awal ditemukan, rempah-rempah juga menjadi salah satu hal penting dalam pengobatan medis. Sifatnya yang mahal, langka, dan eksoktik seringkali dikaitkan sebagai simbol kekayaan dan kelas sosial.</p><br>
+            <h2>Sejarah</h2><br>
+            <p>Fungsi utama rempah-rempah yakni sebagai perasa makanan. Rempah-rempah juga digunakan sebagai bahan baku parfum kosmetik dan dupa. Sejak awal ditemukan, rempah-rempah juga menjadi salah satu hal penting dalam pengobatan medis. Sifatnya yang mahal, langka, dan eksoktik seringkali dikaitkan sebagai simbol kekayaan dan kelas sosial.</p><br>
         </div>
     </div>
 
