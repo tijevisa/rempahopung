@@ -1,8 +1,8 @@
 <?php
 
-$sname= "localhost";
+$sname= "db";
 $unmae= "root";
-$password = "";
+$password = "root";
 $db_name = "akun_db";
 
 $conn = mysqli_connect($sname, $unmae, $password, $db_name);

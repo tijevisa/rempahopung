@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "config.php";
 
 function rp($angka){
     $angka = number_format($angka);
@@ -9,6 +10,11 @@ function rp($angka){
 }
 
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
+    if(isset($_GET['del'])) {
+        $item_id = $_GET['item_id'];
+        unset($_SESSION['cart'][$item_id]);
+      }
 
 ?>
 
@@ -47,50 +53,48 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     <div class="boxcontent">
         <img style="width: 80px; height: 80px;" src="img/logo cart.png" alt="">
         <h1 style="padding: 10px;">Cart</h1>
-        <div class="boxcontent-cart">
+        <div class="boxcontent-cart">           
+
+            <? 
+                if(!empty($_SESSION['cart'])) {
+                    foreach($_SESSION['cart'] as $item_id => $item_data) {
+            ?>               
             <div class="boxcontent-cart-isi">
-                <table>
+                <table
                     <tr>
                         <th width="231px">Rempah</th><th width="231px">Jumlah Rempah (Kg)</th><th width="231px">Total Harga</th><th width="231px">Aksi</th>
                     </tr>
                     <tr>
                         <td align="center">
-                            <?php
-                            include "config.php";
-                            $sql = mysqli_query($conn, "SELECT * FROM rempah");
-                            // $hasil = mysqli_fetch_array($sql);
-                            $i = 1;
-                            while($row=mysqli_fetch_assoc($sql))
-                            {
-                                $id[$i] = $row['id'];
-                                $nama_rempah[$i] = $row['nama_rempah'];
-                                $harga[$i] = rp($row['harga']);
-                                $image[$i] = $row['image'];
-                                $i++;
-                            }
-                            ?>
-                            <img src="img/<?= $image[1] ?>" style="width: 200px; height: 150px; padding-top:3px; border-radius: 5px 5px 0 0;">
+                            
+                            <img src="img/<?= $item_data['name'] ?>.jpg" style="width: 200px; height: 150px; padding-top:3px; border-radius: 5px 5px 0 0;">
                             <div class="container">
-                                <h4 style="padding: 5px;"><b><?= $nama_rempah[1] ?></b></h4> 
-                                <p style="padding: 5px;">Rp. <?= $harga[1] ?></p> 
+                                <h4 style="padding: 5px;"><b><?= $item_data['name'] ?></b></h4> 
+                                <p style="padding: 5px;">Rp. <?= $item_data['price'] ?></p> 
                         </td>
                         <td align="center">
                             <div class="tombol">
-                                
+                            <?= $item_data['quantity'] ?>
                             </div>
                         </td>
                         <td align="center">
                             <div class="tombol">
-                                
+                            <?= $item_data['quantity'] * $item_data['price'] ?>
                             </div>
                         </td>
                         <td align="center" style="border-left: 1px solid;">
-                            <button onclick="window.location.href=''" style="cursor:pointer; margin: 10px 0 10px 0; background:#d9d9d9; border-width: 1px;height: 40px;width: 170px;top: 123px;border-radius: 20px;" >Pesan</button>
-                            <button onclick="window.location.href=''" style="cursor:pointer; margin: 10px 0 10px 0; background:#d9d9d9; border-width: 1px;height: 40px;width: 170px;top: 123px;border-radius: 20px;" >Hapus</button>
+                            <a href='?del=true&item_id=<?= $item_data['id'] ?>' onclick="alert('TERPESAN!')" style="cursor:pointer; margin: 10px 0 10px 0; background:#d9d9d9; border-width: 1px;height: 40px;width: 170px;top: 123px;border-radius: 20px;" >Pesan</a>
+                            <a href='?del=true&item_id=<?= $item_data['id'] ?>' style="cursor:pointer; margin: 10px 0 10px 0; background:#d9d9d9; border-width: 1px;height: 40px;width: 170px;top: 123px;border-radius: 20px;" >Hapus</a>
                         </td>
                     </tr>
                 </table>                
             </div>
+            <? 
+              }
+            } else {
+              echo "<p>Your cart is empty.</p>";
+            }
+            ?>
         </div>
     </div>
 
