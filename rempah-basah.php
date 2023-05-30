@@ -8,6 +8,34 @@ function rp($angka){
     return $angka;
 }
 
+        // Check if cart array exists in session, and initialize it if not
+        if (!isset($_SESSION['cart'])) {
+            $_SESSION['cart'] = array();
+        }
+
+        // Add item to cart
+        if (isset($_GET['item_id'])) {
+            $item_id = $_GET['item_id'];
+            $item_name = $_GET['item_name'];
+            $item_price = $_GET['item_price'];
+            $quantity = 1;
+
+            // Check if item already exists in cart
+            if (isset($_SESSION['cart'][$item_id])) {
+                // If so, increment quantity
+                $_SESSION['cart'][$item_id]['quantity'] += $quantity;
+            } else {
+                // Otherwise, add new item to cart
+                $_SESSION['cart'][$item_id] = array(
+                    'id' => $item_id,
+                    'name' => $item_name,
+                    'price' => $item_price,
+                    'quantity' => $quantity
+                );
+            }
+        }
+
+
 if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 ?>
@@ -73,15 +101,15 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                         <tr>
                         </tr>
                         <td>
-                            <div class="card">
-                                <img src="img/<?= $image[$i] ?>" style="width: 200px; height: 150px; border-radius: 5px 5px 0 0;">
-                                <div class="container">
+                        <div class="card">
+                                <img src="img/<?php echo $image[$i]; ?>" style="width: 200px; height: 150px; border-radius: 5px 5px 0 0;">
+                                <div class="container1">
                                     <h4 style="padding: 5px;"><b><?= $nama_rempah[$i] ?></b></h4> 
                                     <p style="padding: 5px;">Rp. <?= $harga[$i] ?></p> 
                                 </div>
                                 <div class="btn-card">
-                                    <button style="width: 35px; height:35px; font-size:24px; margin: 10px; padding: 3px;"><i class="fa fa-shopping-cart"></i></button>    
-                                    <button style="background-color:#D9D9D9; border-radius: 5px; border-width: 1px; height:35px; width:120px; font-size:24px; margin: 10px; padding: 3px;">beli</button>
+                                    <a href='?item_id=<?=$id[$i]?>&item_name=<?=$nama_rempah[$i]?>&item_price=<?=$harga[$i]?>' class="btn<?php echo $id[$i] ?>" style="width: 35px; height:35px; font-size:24px; margin: 10px; padding: 3px;"><i class="fa fa-shopping-cart"></i></a>    
+                                    <button onclick="alert('TERPESAN')" style="background-color:#D9D9D9; border-radius: 5px; border-width: 1px; height:35px; width:120px; font-size:24px; margin: 10px; padding: 3px;">beli</button>
                                 </div>
                             </div>
                         </td>
@@ -89,16 +117,17 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                         <td>
                             <div class="card">
                                 <img src="img/<?= $image[$i] ?>" style="width: 200px; height: 150px; border-radius: 5px 5px 0 0;">
-                                <div class="container">
+                                <div class="container1">
                                     <h4 style="padding: 5px;"><b><?= $nama_rempah[$i] ?></b></h4> 
                                     <p style="padding: 5px;">Rp. <?= $harga[$i] ?></p> 
                                 </div>
                                 <div class="btn-card">
-                                    <button style="width: 35px; height:35px; font-size:24px; margin: 10px; padding: 3px;"><i class="fa fa-shopping-cart"></i></button>    
-                                    <button style="background-color:#D9D9D9; border-radius: 5px; border-width: 1px; height:35px; width:120px; font-size:24px; margin: 10px; padding: 3px;">beli</button>
+                                    <a href='?item_id=<?=$id[$i]?>&item_name=<?=$nama_rempah[$i]?>&item_price=<?=$harga[$i]?>'  class="btn<?php echo $id[$i] ?>" style="width: 35px; height:35px; font-size:24px; margin: 10px; padding: 3px;"><i class="fa fa-shopping-cart"></i></a>    
+                                    <button onclick="alert('TERPESAN')" style="background-color:#D9D9D9; border-radius: 5px; border-width: 1px; height:35px; width:120px; font-size:24px; margin: 10px; padding: 3px;">beli</button>
                                 </div>
                             </div>
                         </td>
+                        
                     <?php } ?>
                 <?php } ?>
             </table>

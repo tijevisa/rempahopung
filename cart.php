@@ -67,7 +67,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                     <tr>
                         <td align="center">
                             
-                            <img src="img/<?= $item_data['name'] ?>.jpg" style="width: 200px; height: 150px; padding-top:3px; border-radius: 5px 5px 0 0;">
+                            <img src="img/<?= str_replace(" ", "_", $item_data['name']) ?>.jpg" style="width: 200px; height: 150px; padding-top:3px; border-radius: 5px 5px 0 0;">
                             <div class="container">
                                 <h4 style="padding: 5px;"><b><?= $item_data['name'] ?></b></h4> 
                                 <p style="padding: 5px;">Rp. <?= $item_data['price'] ?></p> 
